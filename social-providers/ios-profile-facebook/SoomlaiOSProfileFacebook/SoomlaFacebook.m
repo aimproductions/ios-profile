@@ -157,6 +157,19 @@ static NSString *TAG = @"SOOMLA SoomlaFacebook";
                                                   || FBSession.activeSession.state == FBSessionStateOpenTokenExtended)));
 }
 
+/**
+Get the active access token.
+
+@return A string on success, nil otherwise.
+*/
+- (NSString *)getAccessToken {
+	if (FBSession.activeSession == nil || FBSession.activeSession.accessTokenData == nil) {
+		return nil;
+	}
+
+	return FBSession.activeSession.accessTokenData.accessToken;
+}
+
 - (BOOL)tryHandleOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     return [FBAppCall handleOpenURL:url
                            sourceApplication:sourceApplication

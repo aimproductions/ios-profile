@@ -235,6 +235,19 @@ static NSString *TAG            = @"SOOMLA SoomlaTwitter";
     return ![self isEmptyString:loggedInUser] && self.twitter;
 }
 
+/**
+Get the active access token.
+
+@return A string on success, nil otherwise.
+*/
+- (NSString *)getAccessToken {
+	if ([self isEmptyString:loggedInUser] || !self.twitter){
+		return nil;
+	}
+
+	return nil; // TODO Implement
+}
+
 - (BOOL)tryHandleOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     NSString *expectedScheme = [self getURLScheme];
     

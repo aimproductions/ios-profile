@@ -108,6 +108,11 @@ static NSString* TAG = @"SOOMLA AuthController";
     return [authProvider isLoggedIn];
 }
 
+- (NSString *)getAccessTokenWithProvider:(Provider)provider {
+    id<IAuthProvider> authProvider = (id<IAuthProvider>)[self getProvider:provider];
+    return [authProvider getAccessToken];
+}
+
 - (UserProfile *)getStoredUserProfileWithProvider:(Provider)provider {
     UserProfile* userProfile = [UserProfileStorage getUserProfile:provider];
     if (!userProfile) {

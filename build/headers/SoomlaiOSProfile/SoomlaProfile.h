@@ -93,6 +93,14 @@
 - (BOOL)isLoggedInWithProvider:(Provider)provider;
 
 /**
+Get the active access token from the given provider
+
+@param provider The provider to use
+@return A string on success, nil otherwise.
+*/
+- (NSString *)getAccessTokenWithProvider:(Provider)provider;
+
+/**
  Fetches the user's profile for the given provider from the local device storage
 
  @param provider The provider to use

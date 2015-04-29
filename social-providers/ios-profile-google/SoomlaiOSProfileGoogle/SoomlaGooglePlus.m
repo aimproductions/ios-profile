@@ -143,6 +143,20 @@ static NSString *TAG = @"SOOMLA SoomlaGooglePlus";
     return ([GPPSignIn sharedInstance].authentication != nil);
 }
 
+/**
+Get the active access token.
+
+@return A string on success, nil otherwise.
+*/
+- (NSString *)getAccessToken {
+    LogDebug(TAG, @"getAccessToken");
+	if ([GPPSignIn sharedInstance].authentication == nil){
+		return nil;
+	}
+
+	return [GPPSignIn sharedInstance].idToken;
+}
+
 - (BOOL)tryHandleOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
     return [GPPURLHandler handleURL:url
            sourceApplication:sourceApplication
