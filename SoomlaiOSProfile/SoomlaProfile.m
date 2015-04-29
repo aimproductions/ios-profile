@@ -98,6 +98,18 @@ BOOL UsingExternalProvider;
 
 }
 
+- (NSString *)getAccessTokenWithProvider:(Provider)provider {
+    @try {
+        return [authController getAccessTokenWithProvider:provider];
+    }
+    @catch (NSException *exception) {
+        
+        // TODO: implement logic like in java that will raise the exception. Currently not raised
+        return [socialController getAccessTokenWithProvider:provider];
+    }
+
+}
+
 - (UserProfile *)getStoredUserProfileWithProvider:(Provider)provider {
     @try {
         return [authController getStoredUserProfileWithProvider:provider];
